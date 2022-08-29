@@ -1,0 +1,35 @@
+{
+  "layout": {
+    "appName": "AUX intelligent management system"
+  },
+  "common": { },
+  "http": {
+    "error": {
+      "302": "Interface redirected!",
+      "400": "Incorrect request parameters!",
+      "401": "Unauthorized, or the login has timed out, please log in again!",
+      "403": "You do not have permission to operate!",
+      "404": "Error requesting address: {0}{1}",
+      "408": "Request timed out",
+      "500": "IDU server error",
+      "501": "Service not implemented",
+      "502": "Gateway error",
+      "503": "Service unavailable",
+      "504": "Gateway Timeout",
+      "505": "HTTP version not supported",
+      "repeat": "repeat request for request:",
+      "unknow": "Unknown error",
+      "overTime": "The network request timed out!",
+      "serverError": "Server exception!",
+      "netDisConnect": "You are disconnected!"
+    }
+  },
+  "mqtt": {
+    "error": {
+      "netDisConnect": "Server connection failed",
+      "reConnect": "Server disconnected, reconnecting",
+      "timeout": "Server response timed out!"
+    },
+    "success": "Server connection succeeded!"
+  }
+}

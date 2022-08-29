@@ -1,13 +1,17 @@
-import "./styles/base.scss";
-import App from "./App.vue";
-import { createApp } from "vue";
+import './styles/index.scss'
 
-export const app = createApp(App);
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from '@/router'
+import store from '@/store'
+
+export const app = createApp(App)
 
 async function init() {
   // 挂载
-  app.mount("#app");
+  app.mount('#app')
+  app.use(router).use(store)
 }
-console.log(process.env.NODE_ENV);
+console.log(process.env.NODE_ENV)
 
-init();
+init()
