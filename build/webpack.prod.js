@@ -1,6 +1,5 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -8,6 +7,9 @@ const BundleAnalyzerPlugin =
 const config = {
   mode: "production",
   devtool: false,
+  output: {
+    clean: true,
+  },
   module: {
     rules: [
       {
@@ -22,7 +24,10 @@ const config = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    }),
+    // new CleanWebpackPlugin(),// output:{clean:true} 代替
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash:8].css",
     }),
@@ -33,6 +38,6 @@ const config = {
   ],
 };
 
-module.exports = (env) => {
-  return merge(common(env), config);
+module.exports = (env, argv) => {
+  return merge(common(env, argv), config);
 };

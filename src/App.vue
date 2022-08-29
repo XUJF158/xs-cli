@@ -1,7 +1,9 @@
 <template>
-  <div>123</div>
+  <Test></Test>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Test from "@/views/Test.vue";
+</script>
 
 <style lang="scss" scoped></style>

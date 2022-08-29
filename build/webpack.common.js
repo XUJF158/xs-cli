@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env, argv) => {
   return {
-    entry: "./src/main.js",
+    entry: "./src/main.ts",
     output: {
       path: path.resolve(__dirname, "../dist"), // 打包后输出文件目录
       filename: `js/[name].[chunkhash:8].js`, // 打包后的js文件存放路径
@@ -13,8 +13,9 @@ module.exports = (env, argv) => {
       modules: [path.resolve("src"), "node_modules"],
       alias: {
         "@": path.resolve(__dirname, "../src"),
+        process: "process/browser",
       },
-      extensions: [".ts", ".js", ".vue", ".json", "..."], // 如果用户引入模块时不带扩展名
+      extensions: [".ts", ".js", "tsx", ".vue", ".json", "..."], // 如果用户引入模块时不带扩展名
     },
     module: {
       rules: [
@@ -28,8 +29,11 @@ module.exports = (env, argv) => {
           use: ["babel-loader"],
         },
         {
-          test: /\.ts$/,
-          use: ["ts-loader"],
+          test: /\.(ts|tsx)$/i,
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true,
+          },
         },
         {
           test: /\.(jpg|png|gif|jpeg)$/,
