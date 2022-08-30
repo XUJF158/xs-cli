@@ -5,7 +5,7 @@ import useMessage from '@/hooks/common/useMessage'
 import axios from 'axios'
 
 export const handleHttpError = function (axiosConfig: MyAxiosReqConfig, error: any): any {
-  const { showMessage } = useMessage()
+  // const { showMessage } = useMessage()
 
   // let msg = ''
   // const res = error.response

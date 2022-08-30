@@ -9,7 +9,7 @@ import { App, nextTick } from 'vue'
 import { createI18n, I18nOptions } from 'vue-i18n'
 import { IlocalesList } from './type'
 
-const { showMessage } = useMessage()
+// const { showMessage } = useMessage()
 
 let langList: ILangItem[] = []
 
@@ -25,7 +25,7 @@ async function init() {
   })
   const showLangList = res.langList.filter((lang) => lang.show)
   if (showLangList.length == 0 || !showLangList) {
-    showMessage({ tips: 'The language pack is missing or set incorrectly!', type: 'error' })
+    // showMessage({ tips: 'The language pack is missing or set incorrectly!', type: 'error' })
   }
   langList = showLangList
   // 设置语言包列表
@@ -52,7 +52,7 @@ async function asyncLoadLang(lang: string) {
         const res = await myAxios({ baseURL: '/', url: `${langItem?.path}`, hideLoading: true })
         if (typeof res === 'string') {
           // 获取不到包
-          showMessage({ tips: 'The language pack is missing or set incorrectly!', type: 'error' })
+          // showMessage({ tips: 'The language pack is missing or set incorrectly!', type: 'error' })
         } else {
           // 获取到包
           i18n.global.setLocaleMessage(lang, res)

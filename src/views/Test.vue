@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <h1>Hello Vue3 + TypeScript|{{ test }}</h1>
-    <button type="button" @click="add">+</button>
+    <van-button type="primary" @click="add">+</van-button>
   </div>
 </template>
 
