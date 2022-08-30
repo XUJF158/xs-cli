@@ -9,7 +9,8 @@
     "test": "webpack --config build/webpack.prod.js --mode production",
     "none": "webpack --config build/webpack.prod.js --mode none",
     "type-check": "tsc --noEmit",
-    "prettier": "prettier ./src  --write"
+    "prettier": "prettier ./src  --write",
+    "preview": "nodemon preview/index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "@vue/compiler-sfc": "^3.2.37",
     "@vue/eslint-config-prettier": "^7.0.0",
     "babel-loader": "^8.2.5",
+    "connect": "^3.7.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "dart-sass": "^1.25.0",
