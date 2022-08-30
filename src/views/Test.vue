@@ -26,6 +26,10 @@ async function Timer() {
 <style lang="scss" scoped>
 $fontColor: #ffffff;
 .test {
+  h1 {
+    font-size: 18px;
+  }
   color: $fontColor;
+  transform: rotate(-20deg);
 }
 </style>
